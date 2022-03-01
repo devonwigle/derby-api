@@ -52,42 +52,9 @@ app.get('/api/v1/handSignals', (request, response) => {
   response.json({handSignals});
 })
 
-app.post('/api/v1/handSignals', (resquest, response) => {
-  const id = Date.now();
-  const handSignal = request.body;
-  const {name, use} = handSignal;
-
-  for (let requiredParameter of ['name', 'use']) {
-    if(!handsignal[requiredParameter]) {
-      response
-        .status(422)
-        .send({error: `You are missing ${requiredParameter}`})
-    }
-  }
-
-  app.locals.handSignals.push({id, name, use});
-  response.json({id, name, use})
-})
-
 app.get('/api/v1/whistles', (request, response) => {
   const whistle = app.locals.whistles;
   response.json({ whistle });
-})
-
-app.post('api/v1/whistles', (request, response) => {
-  const id = Date.now();
-  const whistle = request.body;
-  const {name, use, blower} = whistle;
-
-  for (let requiredParameter of ['name', 'use', 'blower']) {
-    if (!whistle[requiredParameter]) {
-      response
-        .status(422)
-        .send({error: `You are missing ${requiredParameter}.`})
-    }
-  }
-  app.locals.whistles.push({id, name, use, blower});
-  response.json({name, use, blower})
 })
 
 app.listen(app.get('port'), () => {
