@@ -55,17 +55,17 @@ app.get('/', (request, response) => {
 
 app.get('/api/v1/handSignals', (request, response) => {
   const handSignals = app.locals.handSignals;
-  response.json({handSignals});
+  response.json(handSignals);
 })
 
 app.get('/api/v1/handSignals/:id', (request, response) => {
   const handSignals = app.locals.handSignals.find((handSignal) => handSignal.id === request.params.id) 
-  response.json({ handSignals });
+  response.json(handSignals);
 })
 
 app.get('/api/v1/whistles', (request, response) => {
   const whistle = app.locals.whistles;
-  response.json({ whistle });
+  response.json(whistle);
 })
 
 app.listen(app.get('port'), () => {
