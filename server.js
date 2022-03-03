@@ -63,11 +63,6 @@ app.get('/api/v1/handSignals/:id', (request, response) => {
   response.json({ handSignals });
 })
 
-app.get('/api/v1/handSignals/images', (request, response) => {
-  const handSignals = app.locals.handSignals.map((handSignal) => {handSignal.id, handSignal.image})
-  response.json({ handSignals });
-})
-
 app.get('/api/v1/whistles', (request, response) => {
   const whistle = app.locals.whistles;
   response.json({ whistle });
