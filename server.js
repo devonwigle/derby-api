@@ -49,7 +49,7 @@ app.locals.handSignals = [
   { id: 'hs29', name: 'Pack is Here', use: 'define where the pack is', motion: 'hold straightened arms out left hand pointing at the front-most pack skater, right hand pointing at the rear-most pack skater', rule: '2.3', image: 'https://i.postimg.cc/tRKx2SFV/Pack-is-here.png' },
   { id: 'hs30', name: 'Explusion', use: 'expell an individual from the game', motion: 'right hand makes a thumbs up sign, then move your fist over your right shoulder', rule: '4.3', image: 'https://i.postimg.cc/mkZv7NVX/Expulsion.png' },
 ]
-app.get('/api', (request, response) => {
+app.get('/', (request, response) => {
   response.send('Welcome to Roller Derby API');
 });
 
@@ -71,5 +71,3 @@ app.get('/api/v1/whistles', (request, response) => {
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}`);
 });
-
-module.exports = app;
